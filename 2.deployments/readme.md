@@ -33,6 +33,10 @@ Create the replicaset:
 
 `kubectl apply -f 2.deployments/replicaset.yaml`
 
+Delete one of the pods and see what happens: 
+
+`kubectl delete pod <pod-name>`
+
 
 ### Deployments
 
