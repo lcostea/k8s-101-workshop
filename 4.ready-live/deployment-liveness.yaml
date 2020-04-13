@@ -1,0 +1,25 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: go-api-demo-liveness
+  labels:
+    app: go-api-demo-liveness
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: go-api-demo-liveness
+  template:
+    metadata:
+      labels:
+        app: go-api-demo-liveness
+    spec:
+      containers:
+      - name: go-api-demo
+        image: lcostea/go-api-demo:0.1.0
+        livenessProbe:
+          httpGet:
+            path: /healthy
+            port: 3000
+          initialDelaySeconds: 5
+          periodSeconds: 3
