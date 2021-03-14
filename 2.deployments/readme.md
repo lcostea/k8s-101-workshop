@@ -1,6 +1,10 @@
 ### Pods
 
-Create the pod:
+Start a pod (imperative way):
+
+`kubectl run nginx --image nginx:1.16.0`
+
+Create a pod (declarative way):
 
 `kubectl apply -f 2.deployments/pod.yaml`
 
@@ -8,7 +12,7 @@ Lets get the pod ip:
 
 `kubectl get po -o wide`
 
-In a separate terminal, get a shell inside the cluster and lets contact the above web app:
+In a separate terminal, get a shell inside the cluster and lets contact the above web apps:
 
 `kubectl run -it alpine --image=alpine --restart=Never /bin/sh`
 
@@ -23,6 +27,8 @@ In a separate terminal, get a shell inside the cluster and lets contact the abov
 Delete the pod and recreate it so we can see the ip changes:
 
 `kubectl delete pod go-api-demo`
+
+`kubectl get po -o wide`
 
 `kubectl apply -f 2.deployments/pod.yaml`
 
@@ -64,7 +70,7 @@ Watch how the pods rollout progresses
 
 See the switch of the replicasets:
 
-`kubectl describe deploy`
+`kubectl get rs`
 
 Apply an image that doesn't exist and see how the pods rollout is blocked
 
@@ -83,7 +89,7 @@ Check how the pods are being affected in a separate window:
 
 Apply a new image so we can see the recreate in action
 
-`kubectl set image deployment.v1.apps/nginx-recreate nginx=nginx:1.16.1`
+`kubectl set image deployment.v1.apps/nginx-recreate nginx=nginx:1.16.2`
 
 Apply an image that doesn't exist and see how the pods recreate is done whatever the consequences
 
