@@ -6,7 +6,7 @@ Create a new deployment:
 
 #### Cluster IP Service
 
-Create the cluster ip service, nothing needs to be supplied, this is the default:
+Create the cluster ip service (which is the default type):
 
 `kubectl apply -f 3.service/service-clusterip.yaml`
 
@@ -16,24 +16,19 @@ Get the ip of the newly created service:
 
 In a separate terminal, get a shell inside the cluster and lets contact the above web app via the service:
 
-`kubectl run -it alpine-svc --image=alpine --restart=Never /bin/sh`
+`kubectl run -it alpine-svc --image=alpine -- /bin/sh`
 
     Inside the pod shell, the following commands
 
     apk add curl
 
-    curl http://<svc-ip>:3000
+    curl http://<svc-ip>:3001
 
     curl http://<pod-ip>:3000/callforpapers
 
     curl http://go-api-demo-clusterip:3000/callforpapers
 
     curl http://go-api-demo-clusterip.liviu-costea:3000/callforpapers
-
-Modify the service ip and to use a named port and apply it again:
-
-`kubectl apply -f 3.service/service-clusterip.yaml`
-
 
 #### Load Balancer Service
 
