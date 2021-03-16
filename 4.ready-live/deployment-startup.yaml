@@ -23,9 +23,11 @@ spec:
             port: 3000
           initialDelaySeconds: 5
           periodSeconds: 3
+          timeoutSeconds: 2
         startupProbe:
           httpGet:
             path: /healthy
             port: 3000
           failureThreshold: 10
           periodSeconds: 5
+          timeoutSeconds: 2

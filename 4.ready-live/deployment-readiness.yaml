@@ -21,6 +21,5 @@ spec:
           httpGet:
             path: /ready
             port: 3000
-          initialDelaySeconds: 5
+          initialDelaySeconds: 8
           periodSeconds: 10
-          timeoutSeconds: 6

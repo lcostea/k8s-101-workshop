@@ -9,7 +9,7 @@ https://console.cloud.google.com/apis/library/container.googleapis.com?q=kuberne
 Create the cluster with only 1 node (feel free to increase --num-nodes, but costs might apply):
 - the region picked is europe-west3 which is in Frankfurt, the only rule being reduced latency (so as close to our location)
 
-`gcloud container clusters create k8s-101-course --zone europe-west3 --num-nodes=1`
+`gcloud container clusters create k8s-101-course --region europe-west3 --num-nodes=1`
 
 
 This is not needed as when the cluster is created the credentials are added automatically

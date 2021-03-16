@@ -1,10 +1,15 @@
-### Liveness and Readiness probes
+### Probes
 
 #### Liveness
 
 Create a new deployment with a liveness probe configured:
 
 `kubectl apply -f 4.ready-live/deployment-liveness.yaml`
+
+What happens in the code: https://github.com/lcostea/cfp-api/blob/master/main.go#L58
+Describe one of the pods: 
+
+`kubectl describe pod `
 
 Set a `timeoutSeconds: 2` field for the liveness probe and apply again the deployment
 
@@ -14,8 +19,10 @@ Create a new deployment with a startup and liveness probe configured:
 
 `kubectl apply -f 4.ready-live/deployment-startup.yaml` 
 
-(note: it will fail on clusters older than 1.16)
+Set a `timeoutSeconds: 2` field for the startup probe and apply again the deployment
+Set a `timeoutSeconds: 2` field for the liveness probe and apply again the deployment
 
+#### Readiness
 
 Create a new deployment with a readiness probe configured:
 
