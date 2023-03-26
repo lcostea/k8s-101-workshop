@@ -1,18 +1,18 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: go-api-demo-limits
+  name: go-api-demo
   labels:
-    app: go-api-demo-limits
+    app.kubernetes.io/name: go-api-demo
 spec:
   replicas: 3
   selector:
     matchLabels:
-      app: go-api-demo-limits
+      app.kubernetes.io/name: go-api-demo
   template:
     metadata:
       labels:
-        app: go-api-demo-limits
+        app.kubernetes.io/name: go-api-demo
     spec:
       containers:
       - name: go-api-demo

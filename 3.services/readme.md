@@ -1,5 +1,10 @@
 ### Services
 
+How it works: 
+
+![Kubernetes service](k8s-service.png "Service")
+
+
 Create a new deployment:
 
 `kubectl apply -f 3.service/deployment.yaml`

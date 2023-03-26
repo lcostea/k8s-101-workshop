@@ -1,4 +1,4 @@
-### Pods
+## Pods
 
 Start a pod (imperative way):
 
@@ -14,9 +14,9 @@ Lets get the pod ip:
 
 In a separate terminal, get a shell inside the cluster and lets contact the above web apps:
 
-`kubectl run -it alpine --image=alpine --restart=Never /bin/sh`
+`kubectl run -it alpine --image=alpine:3.17 --restart=Never /bin/sh`
 
-    Inside the pod shell, the following commands
+Inside the pod shell run the following commands
 
     apk add curl
 
@@ -24,16 +24,8 @@ In a separate terminal, get a shell inside the cluster and lets contact the abov
 
     curl http://<pod-ip>:3000/callforpapers
 
-Delete the pod and recreate it so we can see the ip changes:
 
-`kubectl delete pod go-api-demo`
-
-`kubectl get po -o wide`
-
-`kubectl apply -f 2.deployments/pod.yaml`
-
-
-### Replicaset
+## Replicaset
 
 Create the replicaset:
 
@@ -44,7 +36,7 @@ Delete one of the pods and see what happens:
 `kubectl delete pod <pod-name>`
 
 
-### Deployments
+## Deployments
 
 Create the deployment, rollout strategy:
 
@@ -58,7 +50,12 @@ Check the new deployment, the replicaset created underneath and the pods:
 
 `kubectl get po`
 
-#### Rollout strategy
+How it works: 
+
+![Kubernetes deployment](k8s-deployment.png "Deployment")
+
+
+### Rollout strategy
 
 Apply a new image so we can see the rollout in action
 
@@ -77,7 +74,7 @@ Apply an image that doesn't exist and see how the pods rollout is blocked
 `kubectl set image deployment.v1.apps/nginx-rollout nginx=nginx:1.161`
 
 
-#### Recreate strategy
+### Recreate strategy
 
 Create another deployment with recreate strategy:
 
@@ -94,3 +91,5 @@ Apply a new image so we can see the recreate in action
 Apply an image that doesn't exist and see how the pods recreate is done whatever the consequences
 
 `kubectl set image deployment.v1.apps/nginx-recreate nginx=nginx:1.161`
+
+#### What about canary deployments or A/B testing?
