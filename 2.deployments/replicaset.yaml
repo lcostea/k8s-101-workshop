@@ -3,7 +3,7 @@ kind: ReplicaSet
 metadata:
   name: go-api-demo
 spec:
-  replicas: 3
+  replicas: 2
   selector:
     matchLabels:
       app: go-api-demo

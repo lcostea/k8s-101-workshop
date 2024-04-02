@@ -14,7 +14,7 @@ Lets get the pod ip:
 
 In a separate terminal, get a shell inside the cluster and lets contact the above web apps:
 
-`kubectl run -it alpine --image=alpine:3.17 --restart=Never /bin/sh`
+`kubectl run -it alpine --image=alpine:3.19 --restart=Never /bin/sh`
 
 Inside the pod shell run the following commands
 
