@@ -7,13 +7,13 @@ How it works:
 
 Create a new deployment:
 
-`kubectl apply -f 3.service/deployment.yaml`
+`kubectl apply -f 3.services/deployment.yaml`
 
 #### Cluster IP Service
 
 Create the cluster ip service (which is the default type):
 
-`kubectl apply -f 3.service/service-clusterip.yaml`
+`kubectl apply -f 3.services/service-clusterip.yaml`
 
 Get the ip of the newly created service:
 
@@ -21,7 +21,7 @@ Get the ip of the newly created service:
 
 In a separate terminal, get a shell inside the cluster and lets contact the above web app via the service:
 
-`kubectl run -it alpine-svc --image=alpine -- /bin/sh`
+`kubectl run -it alpine-svc --image=alpine:3.21 -- /bin/sh`
 
     Inside the pod shell, the following commands
 
@@ -39,7 +39,7 @@ In a separate terminal, get a shell inside the cluster and lets contact the abov
 
 Create the LoadBalancer service:
 
-`kubectl apply -f 3.service/service-lb.yaml`
+`kubectl apply -f 3.services/service-lb.yaml`
 
 Wait for the .status.loadBalancer to show when it is ready:
 
