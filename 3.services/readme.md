@@ -31,9 +31,9 @@ In a separate terminal, get a shell inside the cluster and lets contact the abov
 
     curl http://<pod-ip>:3000/callforpapers
 
-    curl http://go-api-demo-clusterip:3000/callforpapers
+    curl http://go-api-demo-clusterip:3001/callforpapers
 
-    curl http://go-api-demo-clusterip.liviu-costea:3000/callforpapers
+    curl http://go-api-demo-clusterip.liviu-costea:3001/callforpapers
 
 #### Load Balancer Service
 
