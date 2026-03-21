@@ -21,19 +21,19 @@ Get the ip of the newly created service:
 
 In a separate terminal, get a shell inside the cluster and lets contact the above web app via the service:
 
-`kubectl run -it alpine-svc --image=alpine:3.21 -- /bin/sh`
+`kubectl run -it alpine-svc --image=alpine:3.23 -- /bin/sh`
 
     Inside the pod shell, the following commands
 
     apk add curl
 
+    curl http://node-hello-app-service:3001/
+
+    curl http://node-hello-app-service.node-app:3001
+
     curl http://<svc-ip>:3001
 
-    curl http://<pod-ip>:3000/callforpapers
-
-    curl http://go-api-demo-clusterip:3001/callforpapers
-
-    curl http://go-api-demo-clusterip.liviu-costea:3001/callforpapers
+    curl http://<pod-ip>:3000/
 
 #### Load Balancer Service
 

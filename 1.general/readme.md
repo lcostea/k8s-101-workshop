@@ -26,7 +26,7 @@ Get all the resources from all namespace:
 
 Create your own namespace:
 
-`kubectl create namespace liviu-costea`
+`kubectl create namespace node-app`
 
 Get current context name:
 
@@ -34,4 +34,4 @@ Get current context name:
 
 Switch that namespace to be the default one:
 
-`kubectl config set-context <<context-name>> --namespace=liviu-costea`
+`kubectl config set-context kind-kubernetes-workshop --namespace=node-app`

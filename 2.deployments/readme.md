@@ -14,16 +14,15 @@ Lets get the pod ip:
 
 In a separate terminal, get a shell inside the cluster and lets contact the above web apps:
 
-`kubectl run -it alpine --image=alpine:3.21 --restart=Never /bin/sh`
+`kubectl run -it alpine --image=alpine:3.23 --restart=Never /bin/sh`
 
 Inside the pod shell run the following commands
 
     apk add curl
 
-    curl http://<pod-ip>:3000
+    curl http://<node-app-pod-ip>:3000
 
-    curl http://<pod-ip>:3000/callforpapers
-
+    curl http://<nginx-pod-ip>
 
 ## Replicaset
 
@@ -59,7 +58,7 @@ How it works:
 
 Apply a new image so we can see the rollout in action
 
-`kubectl set image deployment.v1.apps/nginx-rollout nginx=nginx:1.16.1`
+`kubectl set image deployment.v1.apps/nginx-rollout nginx=nginx:1.20.0`
 
 Watch how the pods rollout progresses
 
@@ -72,6 +71,8 @@ See the switch of the replicasets:
 Apply an image that doesn't exist and see how the pods rollout is blocked
 
 `kubectl set image deployment.v1.apps/nginx-rollout nginx=nginx:1.161`
+
+kubectl rollout commands: status, restart, undo
 
 
 ### Recreate strategy
@@ -86,10 +87,10 @@ Check how the pods are being affected in a separate window:
 
 Apply a new image so we can see the recreate in action
 
-`kubectl set image deployment.v1.apps/nginx-recreate nginx=nginx:1.16.2`
+`kubectl set image deployment.v1.apps/nginx-recreate nginx=nginx:1.20.0`
 
 Apply an image that doesn't exist and see how the pods recreate is done whatever the consequences
 
 `kubectl set image deployment.v1.apps/nginx-recreate nginx=nginx:1.161`
 
-#### What about canary deployments or A/B testing?
+#### What about blue/green, canary deployments or A/B testing?
