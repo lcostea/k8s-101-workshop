@@ -1,27 +1,27 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: node-liveness-readiness
+  name: node-liveness
   labels:
-    app: node-liveness-readiness
+    app: node-liveness
 spec:
-  replicas: 3
+  replicas: 2
   selector:
     matchLabels:
-      app: node-liveness-readiness
+      app: node-liveness
   template:
     metadata:
       labels:
-        app: node-liveness-readiness
+        app: node-liveness
     spec:
       containers:
-      - name: node-liveness-readiness
+      - name: node-liveness
         image: lcostea/node-liveness-readiness:v0.1.0
         livenessProbe:
           httpGet:
             path: /healthy
             port: 3000
-          initialDelaySeconds: 5 # default 0s (doesn't wait)
+          initialDelaySeconds: 20 # default 0s (doesn't wait)
           periodSeconds: 5 # default is 10s
           timeoutSeconds: 1 # default 1s
           failureThreshold: 2 # default 3

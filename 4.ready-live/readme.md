@@ -8,7 +8,7 @@ Create a new deployment with a liveness probe configured:
 
 Describe one of the pods: 
 
-`kubectl describe pod `
+`kubectl describe pod <>`
 
 We can break it and see how it will be restarted
 
@@ -18,9 +18,11 @@ Create a new deployment with a healthy and readiness probes configured:
 
 `kubectl apply -f 4.ready-live/deployment-readiness.yaml`
 
+In practice we use the same endpoint for liveness and readyness
+
 
 ### Startup
 
 Create a new deployment with a startup, liveness and readiness probes configured:
 
-`kubectl apply -f 4.ready-live/deployment-startup.yaml` 
+`kubectl apply -f 4.ready-live/deployment-startup.yaml`

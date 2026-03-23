@@ -5,7 +5,7 @@ metadata:
   labels:
     app: node-liveness-readiness
 spec:
-  replicas: 3
+  replicas: 2
   selector:
     matchLabels:
       app: node-liveness-readiness
@@ -21,12 +21,8 @@ spec:
           httpGet:
             path: /ready
             port: 3000
-          initialDelaySeconds: 2
-          periodSeconds: 5
+          periodSeconds: 2
         livenessProbe:
           httpGet:
             path: /healthy
             port: 3000
-          initialDelaySeconds: 5
-          periodSeconds: 5
-          timeoutSeconds: 1
