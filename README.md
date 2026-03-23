@@ -5,7 +5,7 @@
 
 [pods, replicasets, deployments and deploy strategies](2.deployments/readme.md)
 
-[services: cluster ip and lad balancer](3.services/readme.md)
+[services: load balancing in cluster / cloud](3.services/readme.md)
 
 [readyness and liveness checks](4.ready-live/readme.md)
 

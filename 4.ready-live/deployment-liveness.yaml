@@ -1,26 +1,28 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: go-api-demo-liveness
+  name: node-liveness-readiness
   labels:
-    app: go-api-demo-liveness
+    app: node-liveness-readiness
 spec:
   replicas: 3
   selector:
     matchLabels:
-      app: go-api-demo-liveness
+      app: node-liveness-readiness
   template:
     metadata:
       labels:
-        app: go-api-demo-liveness
+        app: node-liveness-readiness
     spec:
       containers:
-      - name: go-api-demo
-        image: lcostea/go-api-demo:0.1.0
+      - name: node-liveness-readiness
+        image: lcostea/node-liveness-readiness:v0.1.0
         livenessProbe:
           httpGet:
             path: /healthy
             port: 3000
-          initialDelaySeconds: 5
-          periodSeconds: 3
-          timeoutSeconds: 1
+          initialDelaySeconds: 5 # default 0s (doesn't wait)
+          periodSeconds: 5 # default is 10s
+          timeoutSeconds: 1 # default 1s
+          failureThreshold: 2 # default 3
+          successThreshold: 1 # default 1

@@ -1,30 +1,30 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: go-api-demo-config
+  name: node-configmap
   labels:
-    app: go-api-demo-config
+    app: node-configmap
 spec:
   replicas: 2
   selector:
     matchLabels:
-      app: go-api-demo-config
+      app: node-configmap
   template:
     metadata:
       labels:
-        app: go-api-demo-config
+        app: node-configmap
     spec:
       containers:
-      - name: go-api-demo
-        image: lcostea/go-api-demo:0.1.0
+      - name: node-configmap
+        image: lcostea/node-configmap:v0.1.0
         env:
         - name: CONNECTION_TIMEOUT
           valueFrom:
             configMapKeyRef:
-              name: go-api-demo
+              name: node-configmap
               key: connectionTimeout
         - name: LOG_LEVEL
           valueFrom:
             configMapKeyRef:
-              name: go-api-demo
+              name: node-configmap
               key: log_level

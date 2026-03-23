@@ -13,6 +13,7 @@ Lets get the pod ip:
 `kubectl get po -o wide`
 
 In a separate terminal, get a shell inside the cluster and lets contact the above web apps:
+(NOTE: this is the general way to get a terminal in the cluster, we will reference it a lot)
 
 `kubectl run -it alpine --image=alpine:3.23 --restart=Never /bin/sh`
 
